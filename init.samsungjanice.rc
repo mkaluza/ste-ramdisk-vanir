@@ -3,7 +3,7 @@ import /init.u8500.rc
 on fs
 
     mount_all /fstab.samsungjanice
-    swapon_all /fstab.samsungjanice
+    #swapon_all /fstab.samsungjanice
 
 on post-fs
 
