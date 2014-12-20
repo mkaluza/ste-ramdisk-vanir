@@ -495,6 +495,7 @@ service console /system/bin/sh
 
 service auditd /system/bin/auditd -k
     class main
+    disabled
 
 on property:ro.debuggable=1
     start console
