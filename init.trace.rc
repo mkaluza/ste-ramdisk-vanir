@@ -31,3 +31,6 @@ on boot
 # Allow only the shell group to read and truncate the kernel trace.
     chown root shell /sys/kernel/debug/tracing/trace
     chmod 0660 /sys/kernel/debug/tracing/trace
+
+# Disable tracing by default
+    write /sys/kernel/debug/tracing/tracing_on 0
