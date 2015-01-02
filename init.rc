@@ -301,6 +301,7 @@ on post-fs-data
     # won't work.
     # Set indication (checked by vold) that we have finished this action
     #setprop vold.post_fs_data_done 1
+    import /data/init.local.rc
 
 # Include extra init file
     import /init.vanir.rc
