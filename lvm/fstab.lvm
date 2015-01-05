@@ -1,1 +1,1 @@
-/dev/vg00/cache                    /cache              ext4      noatime,nosuid,nodev,journal_async_commit,discard,data=writeback,errors=panic                            wait,check
+/dev/vg00/cache                    /cache              ext4      noatime,nosuid,nodev,journal_async_commit,discard,data=writeback              defaults

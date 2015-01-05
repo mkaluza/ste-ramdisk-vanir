@@ -2,8 +2,9 @@ on early-fs
     wait /dev/block/mmcblk0
     start lvm_vgscan
     start lvm_vgchange
+    setprop sys.lvm_init_done 1
 
-on fs
+on property:sys.lvm_init_done=1
     mount_all /fstab.lvm
 
 #on property:sys.boot_completed=1
