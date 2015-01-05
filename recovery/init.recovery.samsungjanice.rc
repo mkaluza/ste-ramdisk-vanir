@@ -17,10 +17,6 @@ on early-fs
 
     mount j4fs /dev/block/mmcblk0p1 /mnt/.lfs wait
 
-on boot
-    wait /data/dalvik-cache
-    start bind_dalvik
-
 # Always start adbd on userdebug and eng builds
 # In recovery, always run adbd as root.
 on property:ro.debuggable=1

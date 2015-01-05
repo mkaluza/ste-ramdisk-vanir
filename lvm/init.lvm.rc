@@ -5,7 +5,12 @@ on early-fs
     setprop sys.lvm_init_done 1
 
 on property:sys.lvm_init_done=1
+    wait /dev/vg00
     mount_all /fstab.lvm
+
+on post-fs
+    wait /system/etc
+    mount_all /system/etc/fstab.lvm
 
 #on property:sys.boot_completed=1
 #    exec rm -rf /lvm

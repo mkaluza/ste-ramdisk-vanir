@@ -1,4 +1,5 @@
 import /init.u8500.rc
+import /init.lvm.rc
 
 on fs
 
