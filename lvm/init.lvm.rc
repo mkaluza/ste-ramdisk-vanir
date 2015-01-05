@@ -1,0 +1,25 @@
+on early-fs
+    wait /dev/block/mmcblk0
+    start lvm_vgscan
+    start lvm_vgchange
+
+on fs
+    mount_all /fstab.lvm
+
+#on property:sys.boot_completed=1
+#    exec rm -rf /lvm
+
+# LVM services
+# Scan for LVM physical volumes and set up volume groups
+service lvm_vgscan /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    disabled
+    oneshot
+
+# Activate LVM logical volumes in found volume groups
+service lvm_vgchange /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+    disabled
+    oneshot
+
+service bind_dalvik /system/bin/logwrapper mount -t none -o bind /cache/dalvik-cache /data/dalvik-cache
+    disabled
+    oneshot
