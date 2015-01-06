@@ -2,10 +2,6 @@ on early-fs
     wait /dev/block/mmcblk0
     start lvm_vgscan
     start lvm_vgchange
-    setprop sys.lvm_init_done 1
-
-on property:sys.lvm_init_done=1
-    wait /dev/vg00
     mount_all /fstab.lvm
 
 on post-fs
