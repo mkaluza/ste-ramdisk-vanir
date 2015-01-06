@@ -1,4 +1,4 @@
-all: boot.cpio recovery.cpio lvm.cpio
+all: boot.cpio recovery.cpio lvm.cpio lvm.cpio.gz
 
 clean:
 	rm *.cpio
@@ -11,3 +11,5 @@ recovery.cpio: recovery/*
 
 lvm.cpio: lvm/*
 	cd lvm && find . | grep -e ".git" -v | grep -e "[~]$$" -v | cpio -o -H newc > ../lvm.cpio
+lvm.cpio.gz: lvm.cpio
+	gzip -f -9 -k lvm.cpio
